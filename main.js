@@ -3,7 +3,7 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
-            url:'190.97.40.223:5000',
+            url:'http://localhost:5000',
             Producto: {
                 id: "",
                 nombre: "",
