@@ -3,6 +3,7 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
+            url:'190.97.40.223:5000',
             Producto: {
                 id: "",
                 nombre: "",
@@ -35,28 +36,28 @@ createApp({
     },
     methods: {
         leerUsuarios() {
-            fetch('http://localhost:5000/usuarios')
+            fetch(this.url + '/usuarios')
                 .then(res => res.json())
                 .then(data => {
                     this.usuarios = data
                 })
         },
         leerProductos() {
-            fetch('http://localhost:5000/productos')
+            fetch(this.url + '/productos')
                 .then(res => res.json())
                 .then(data => {
                     this.productos = data
                 })
         },
         leerPlatos() {
-            fetch('http://localhost:5000/platos')
+            fetch(this.url + '/platos')
                 .then(res => res.json())
                 .then(data => {
                     this.platos = data
                 })
         },
         leerSubtipos() {
-            fetch('http://localhost:5000/subtipos')
+            fetch(this.url + '/subtipos')
                 .then(res => res.json())
                 .then(data => {
                     this.subtipos = data
@@ -70,7 +71,7 @@ createApp({
                 },
                 body: JSON.stringify(this.Producto)
             }
-            fetch('http://localhost:5000/productos', opciones)
+            fetch(this.url + '/productos', opciones)
                 .then(res => res.json())
                 .then(data => {
                     this.limpiarCampos()
@@ -84,7 +85,7 @@ createApp({
                 },
                 body: JSON.stringify(this.Plato)
             }
-            fetch('http://localhost:5000/platos', opciones)
+            fetch(this.url + '/platos', opciones)
                 .then(res => res.json())
                 .then(data => {
                     this.limpiarCampos()
@@ -98,7 +99,7 @@ createApp({
                 },
                 body: JSON.stringify(this.Subtipo)
             }
-            fetch('http://localhost:5000/subtipos', opciones)
+            fetch(this.url + '/subtipos', opciones)
                 .then(res => res.json())
                 .then(data => {
                     this.limpiarCampos()
@@ -111,7 +112,7 @@ createApp({
                     'Content-Type': 'application/json'
                 }
             }
-            fetch('http://localhost:5000/productos/' + id, opciones)
+            fetch(this.url + '/productos/' + id, opciones)
                 .then(res => res.json())
                 .then(data => {
                     this.limpiarCampos()
@@ -124,7 +125,7 @@ createApp({
                     'Content-Type': 'application/json'
                 }
             }
-            fetch('http://localhost:5000/platos/' + id, opciones)
+            fetch(this.url + '/platos/' + id, opciones)
                 .then(res => res.json())
                 .then(data => {
                     this.limpiarCampos()
@@ -137,7 +138,7 @@ createApp({
                     'Content-Type': 'application/json'
                 }
             }
-            fetch('http://localhost:5000/subtipos/' + id, opciones)
+            fetch(this.url + '/subtipos/' + id, opciones)
                 .then(res => res.json())
                 .then(data => {
                     this.limpiarCampos()
@@ -151,7 +152,7 @@ createApp({
                 },
                 body: JSON.stringify(this.Producto)
             }
-            fetch('http://localhost:5000/productos/' + id, opciones)
+            fetch(this.url + '/productos/' + id, opciones)
                 .then(res => res.json())
                 .then(data => {
                     this.limpiarCampos()
@@ -165,7 +166,7 @@ createApp({
                 },
                 body: JSON.stringify(this.Plato)
             }
-            fetch('http://localhost:5000/platos/' + id, opciones)
+            fetch(this.url + '/platos/' + id, opciones)
                 .then(res => res.json())
                 .then(data => {
                     this.limpiarCampos()
@@ -179,14 +180,14 @@ createApp({
                 },
                 body: JSON.stringify(this.Subtipo)
             }
-            fetch('http://localhost:5000/subtipos/' + id, opciones)
+            fetch(this.url + '/subtipos/' + id, opciones)
                 .then(res => res.json())
                 .then(data => {
                     this.limpiarCampos()
                 })
         },
         inicioSesion() {
-            fetch('http://localhost:5000/usuarios/' + this.Usuario.user)
+            fetch(this.url + '/usuarios/' + this.Usuario.user)
                 .then(res => res.json())
                 .then(data => {
                     if (data.user == this.Usuario.user && data.password == this.Usuario.password) {
@@ -208,7 +209,7 @@ createApp({
             } else {
                 usr.activo = 0
             }
-            fetch('http://localhost:5000/usuarios/' + usr.user)
+            fetch(this.url + '/usuarios/' + usr.user)
                 .then(res => res.json())
                 .then(data => {
                     if (data.user != undefined) {
@@ -219,7 +220,7 @@ createApp({
                             },
                             body: JSON.stringify(this.Usuario)
                         }
-                        url = 'http://localhost:5000/usuarios/' + data.user
+                        url = this.url + '/usuarios/' + data.user
                     } else {
                         opciones = {
                             method: 'POST', headers: {
@@ -228,7 +229,7 @@ createApp({
                             },
                             body: JSON.stringify(this.Usuario)
                         }
-                        url = 'http://localhost:5000/usuarios'
+                        url = this.url + '/usuarios'
                     }
                     fetch(url, opciones)
                     .then(res => res.json())
@@ -260,7 +261,7 @@ createApp({
                     'Content-Type': 'application/json'
                 }
             }
-            fetch('http://localhost:5000/usuarios/' + usr, opciones)
+            fetch(this.url + '/usuarios/' + usr, opciones)
                 .then(res => res.json())
                 .then(data => {
                     this.limpiarCampos()
