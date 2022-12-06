@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Rotiseria Buena Voluntad</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="estilos.css">
+
+</head>
+
+<body>
+    <div id="app">
+        <header>
+            <!-- place navbar here -->
+            <!-- Nav tabs -->
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <div class="container-fluid">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">Listas</a>
+                    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li v-if="logueado!=null" class="nav-item">
+                                <a class="nav-link" aria-current="page" href="productos.html">Productos</a>
+                            </li>
+                            <li v-if="logueado!=null" class="nav-item">
+                                <a class="nav-link" href="subtipos.html">Subtipos</a>
+                            </li>
+                            <li v-if="logueado!=null" class="nav-item">
+                                <a class="nav-link" href="platos.html">Platos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link derecha" href="sesion.html">Iniciar Sesion</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <img src="./img/Logo-Circular-Whatsapp.png" alt="logo">
+            <h1>Productos</h1>
+            <div class="container">
+                <form class="form" action="" onsubmit="return false">
+                    <label class="form-label" for="">ID:</label>
+                    <input type="text" disabled name="id" v-model="Producto.id"><br>
+                    <label for="nombre">Nombre:</label>
+                    <input class="form-control-sm" v-model="Producto.nombre" type="text" name="nombre"><br>
+                    <label for="tamanio">Tamaño de Porción:</label>
+                    <input class="form-control-sm" v-model="Producto.tamanio" type="text" name="tamanio"><br>
+                    <label for="precio">Precio:</label>
+                    <input class="form-control-sm" v-model="Producto.precio" type="text" name="precio"><br>
+                    <label for="hoja">Hoja:</label>
+                    <input class="form-control-sm" v-model="Producto.hoja" type="text" name="hoja"><br>
+                    <label for="plato">Plato:</label>
+                    <select class="form-select-sm" v-model="Producto.plato" name="plato" id="plato">
+                        <option v-for="p in platos" :value="p.id">{{p.id}} - {{p.nombre}}</option>
+                    </select><br>
+                    <label for="subtipo">Subtipo:</label>
+                    <select class="form-select-sm" v-model="Producto.subtipo" name="subtipo" id="subtipo">
+                        <option v-for="s in subtipos" :value="s.id">{{s.id}} - {{s.nombre}}</option>
+                    </select><br>
+                    <div v-if="Producto.id == ''">
+                        <input @click="nuevoProducto()" id="submit" type="submit" value="Agregar"
+                            class="btn btn-primary">
+                    </div>
+                    <div v-else>
+                        <input @click="modificarProducto(Producto.id)" id="submit" type="submit" value="Modificar"
+                            class="btn btn-primary">
+                        <input @click="limpiarCampos()" id="submit" value="Cancelar" class="btn btn-primary">
+                    </div>
+                </form>
+            </div>
+            <table class="table table-light">
+                <thead class="table-secondary">
+                    <tr>
+                        <td>ID</td>
+                        <td>Nombre</td>
+                        <td>Tamaño de la Porción</td>
+                        <td>Precio</td>
+                        <td>Hoja</td>
+                        <td>Plato</td>
+                        <td>Subtipo</td>
+                        <td>#</td>
+                        <td>X</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="i in productos">
+                        <td>{{i.id}}</td>
+                        <td>{{i.nombre}}</td>
+                        <td>{{i.tamanio}}</td>
+                        <td>{{i.precio}}</td>
+                        <td>{{i.hoja}}</td>
+                        <td>{{i.plato}} - {{(platos.find((item) => item.id == i.plato)).nombre}}</td>
+                        <td>{{i.subtipo}} - {{(subtipos.find((item) => item.id == i.subtipo)).nombre}}</td>
+                        <td><a class="btn btn-dark" @click="cargarCampos(i)">Modificar</a></td>
+                        <td><a class="btn btn-danger" @click="eliminarProducto(i.id)">Eliminar</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </main>
+    </div>
+    <footer>
+        <!-- place footer here -->
+    </footer>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+        </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+        </script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>

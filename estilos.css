@@ -1,0 +1,92 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: black;
+    color: antiquewhite;
+}
+
+nav{
+    box-shadow: 0 0 30px;
+    background-color: #774b91 !important;
+}
+
+main{
+    margin-top: 20px;
+}
+
+ul{
+    width: 100%;
+}
+
+h1{
+    text-align: center;
+    margin: 75px;
+}
+
+table{
+    width: 80% !important;
+    margin: auto;
+    text-align: center;
+    border-radius: 2px;
+}
+
+form{
+    padding: 20px;
+    border-radius: 15px;
+    width: 50%;
+    margin: auto;
+    margin-bottom: 40px;
+    box-shadow: 10px 10px 15px #fdb3e1;
+    background-color: #68616d;
+}
+
+label{
+    margin: 5px 10px
+}
+
+select{
+    margin: 5px;
+}
+
+.submit{
+    margin: 15px 10px 0 0;
+}
+
+.card-header{
+    color: black;
+}
+
+#contenedor-index{
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.t-chica{
+    width: 30% !important;
+}
+
+.card{
+    background-color: #fdb3e1;
+}
+
+img{
+    top: 85px;
+    width: 150px;
+    left: 130px;
+    position: absolute;
+}
+
+.btn-primary{
+    background-color: #774b91;
+    border: none;
+}
+
+.btn-primary:hover{
+    background-color: #fdb3e1 !important;
+    color: black !important;
+    transition: all .3s;
+}
