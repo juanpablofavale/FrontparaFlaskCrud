@@ -47,7 +47,9 @@
             </nav>
         </header>
         <main>
-            <img src="./img/Logo-Circular-Whatsapp.png" alt="logo">
+            <div class="img-container">
+                <img src="./img/Logo-Circular-Whatsapp.png" alt="logo">
+            </div>
             <h1>Productos</h1>
             <div class="container">
                 <form class="form" action="" onsubmit="return false">
@@ -71,12 +73,12 @@
                     </select><br>
                     <div v-if="Producto.id == ''">
                         <input @click="nuevoProducto()" id="submit" type="submit" value="Agregar"
-                            class="btn btn-primary">
+                            class="btn btn-primary submit">
                     </div>
                     <div v-else>
                         <input @click="modificarProducto(Producto.id)" id="submit" type="submit" value="Modificar"
-                            class="btn btn-primary">
-                        <input @click="limpiarCampos()" id="submit" value="Cancelar" class="btn btn-primary">
+                            class="btn btn-primary submit">
+                        <input @click="limpiarCampos()" id="submit" value="Cancelar" class="btn btn-primary submit cancelar">
                     </div>
                 </form>
             </div>

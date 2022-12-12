@@ -47,8 +47,10 @@
         </nav>
     </header>
     <main>
+        <div class="img-container">
             <img src="./img/Logo-Circular-Whatsapp.png" alt="logo">
-            <h1>Subtipos</h1>
+        </div>
+        <h1>Subtipos</h1>
             <div class="container">
                 <form class="form" action="" onsubmit="return false">
                     <label class="form-label" for="">ID:</label>
@@ -56,11 +58,11 @@
                     <label for="nombre">Nombre:</label>
                     <input class="form-control-sm" v-model="Subtipo.nombre" type="text" name="nombre"><br>
                     <div v-if="Subtipo.id == ''">
-                        <input @click="nuevoSubtipo()" id="submit" type="submit" value="Agregar" class="btn btn-primary">
+                        <input @click="nuevoSubtipo()" id="submit" type="submit" value="Agregar" class="btn btn-primary submit">
                     </div>
                     <div v-else>
-                        <input @click="modificarSubtipo(Subtipo.id)" id="submit" type="submit" value="Modificar" class="btn btn-primary">
-                        <input @click="limpiarCampos()" id="submit" value="Cancelar" class="btn btn-primary">
+                        <input @click="modificarSubtipo(Subtipo.id)" id="submit" type="submit" value="Modificar" class="btn btn-primary submit">
+                        <input @click="limpiarCampos()" id="submit" value="Cancelar" class="btn btn-primary submit cancelar">
                     </div>
                 </form>
             </div>

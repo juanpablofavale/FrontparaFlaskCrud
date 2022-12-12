@@ -9,45 +9,47 @@
 
     <!-- Bootstrap CSS v5.2.1 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="stylesheet" href="estilos.css">
-    
+
 </head>
 
 <body>
     <div id="app">
-    <header>
-        <!-- place navbar here -->
-        <!-- Nav tabs -->
-        <nav class="navbar navbar-expand-lg navbar-dark">
-            <div class="container-fluid">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <a class="navbar-brand" href="index.html">Listas</a>
-                <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li v-if="logueado!=null" class="nav-item">
-                            <a class="nav-link" aria-current="page" href="productos.html">Productos</a>
-                        </li>
-                        <li v-if="logueado!=null" class="nav-item">
-                            <a class="nav-link" href="subtipos.html">Subtipos</a>
-                        </li>
-                        <li v-if="logueado!=null" class="nav-item">
-                            <a class="nav-link" href="platos.html">Platos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link derecha" href="sesion.html">Iniciar Sesion</a>
-                        </li>
-                    </ul>
+        <header>
+            <!-- place navbar here -->
+            <!-- Nav tabs -->
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <div class="container-fluid">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">Listas</a>
+                    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li v-if="logueado!=null" class="nav-item">
+                                <a class="nav-link" aria-current="page" href="productos.html">Productos</a>
+                            </li>
+                            <li v-if="logueado!=null" class="nav-item">
+                                <a class="nav-link" href="subtipos.html">Subtipos</a>
+                            </li>
+                            <li v-if="logueado!=null" class="nav-item">
+                                <a class="nav-link" href="platos.html">Platos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link derecha" href="sesion.html">Iniciar Sesion</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
+            </nav>
+        </header>
+        <main>
+            <div class="img-container">
+                <img src="./img/Logo-Circular-Whatsapp.png" alt="logo">
             </div>
-        </nav>
-    </header>
-    <main>
-            <img src="./img/Logo-Circular-Whatsapp.png" alt="logo">
             <h1>Iniciar Session</h1>
             <div class="container">
                 <form class="form" action="" onsubmit="return false">
@@ -62,8 +64,12 @@
                         <input @click="inicioSesion()" type="submit" value="Iniciar" class="btn btn-primary submit">
                     </div>
                     <div v-else>
-                        <input v-if="Usuario.user!=''" @click="agregarUsuario(Usuario)" type="submit" value="Agregar"
+                        <input v-if="Usuario.modif==0" @click="agregarUsuario(Usuario)" type="submit" value="Agregar"
                             class="btn btn-primary submit">
+                        <input v-else @click="modificarUsuario(Usuario.id)" id="submit" type="submit" value="Modificar"
+                            class="btn btn-primary submit">
+                        <input v-if="Usuario.user!=''" @click="limpiarCampos()" value="Cancelar"
+                            class="btn btn-primary submit cancelar">
                         <input @click="cerrarSesion()" type="submit" value="Cerrar Sesion"
                             class="btn btn-primary submit">
                     </div>

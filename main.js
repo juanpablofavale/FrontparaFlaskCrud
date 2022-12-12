@@ -3,7 +3,7 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
-            url:'http://localhost:5000',
+            url:'https://juanpablofavale.pythonanywhere.com',
             Producto: {
                 id: "",
                 nombre: "",
@@ -24,7 +24,8 @@ createApp({
             Usuario: {
                 user: "",
                 password: "",
-                activo: ""
+                activo: "", 
+                modif: 0
             },
             message: 'Lista de Precios',
             productos: [],
@@ -240,12 +241,12 @@ createApp({
         },
         cargarCampos(p) {
             this.Producto.id = p.id,
-                this.Producto.nombre = p.nombre,
-                this.Producto.tamanio = p.tamanio,
-                this.Producto.precio = p.precio,
-                this.Producto.hoja = p.hoja,
-                this.Producto.plato = p.plato,
-                this.Producto.subtipo = p.subtipo
+            this.Producto.nombre = p.nombre,
+            this.Producto.tamanio = p.tamanio,
+            this.Producto.precio = p.precio,
+            this.Producto.hoja = p.hoja,
+            this.Producto.plato = p.plato,
+            this.Producto.subtipo = p.subtipo
             this.Subtipo.id = p.id
             this.Subtipo.nombre = p.nombre
             this.Plato.id = p.id
@@ -253,6 +254,7 @@ createApp({
             this.Usuario.user = p.user
             this.Usuario.password = p.password
             this.Usuario.activo = p.activo==1 ? true : false
+            this.Usuario.modif = 1
         },
         eliminarUsuario(usr){
             opciones = {
@@ -286,6 +288,7 @@ createApp({
             this.Subtipo.nombre = ""
             this.Usuario.user = ""
             this.Usuario.password = ""
+            this.Usuario.modif = 0
             this.leerProductos()
             this.leerSubtipos()
             this.leerPlatos()
