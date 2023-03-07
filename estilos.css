@@ -111,6 +111,7 @@ img{
 
 #listas td.desc{
     width: 80%;
+    text-align: left;
 }
 
 #listas td.cant{
