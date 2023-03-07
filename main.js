@@ -281,10 +281,10 @@ createApp({
         limpiarCampos() {
             this.Producto.id = ""
             this.Producto.nombre = ""
-            //this.Producto.tamanio = ""
+            this.Producto.tamanio = ""
             this.Producto.precio = ""
-            //this.Producto.plato = "1"
-            //this.Producto.subtipo = "1"
+            this.Producto.plato = "1"
+            this.Producto.subtipo = "1"
             this.Plato.id = ""
             this.Plato.nombre = ""
             this.Subtipo.id = ""
