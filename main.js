@@ -7,26 +7,25 @@ createApp({
             Producto: {
                 id: "",
                 nombre: "",
-                tamanio: "",
-                precio: "",
-                hoja: "",
-                plato: "1",
-                subtipo: "1"
+                plato: "",
+                precio: 0,
+                subtipo: 0,
+                tamanio: 0,
             },
             Plato: {
                 id: "",
-                nombre: ""
+                nombre: "",
             },
             Subtipo: {
                 id: "",
                 nombre: "",
-                hoja:0
+                hoja:0,
             },
             Usuario: {
                 user: "",
                 password: "",
                 activo: "", 
-                modif: 0
+                modif: 0,
             },
             message: 'Lista de Precios',
             hojas:0,
@@ -34,7 +33,8 @@ createApp({
             subtipos: [],
             platos: [],
             usuarios: [],
-            logueado: sessionStorage.getItem('logueado')
+            hojas:0,
+            logueado: sessionStorage.getItem('logueado'),
         }
     },
     methods: {
@@ -244,15 +244,15 @@ createApp({
                 })
         },
         cargarCampos(p) {
-            this.Producto.id = p.id,
-            this.Producto.nombre = p.nombre,
-            this.Producto.tamanio = p.tamanio,
-            this.Producto.precio = p.precio,
-            this.Producto.plato = p.plato,
+            this.Producto.id = p.id
+            this.Producto.nombre = p.nombre
+            this.Producto.tamanio = p.tamanio
+            this.Producto.precio = p.precio
+            this.Producto.plato = p.plato
             this.Producto.subtipo = p.subtipo
             this.Subtipo.id = p.id
             this.Subtipo.nombre = p.nombre
-            this.Subtipo.hoja = p.hoja,
+            this.Subtipo.hoja = p.hoja
             this.Plato.id = p.id
             this.Plato.nombre = p.nombre
             this.Usuario.user = p.user
@@ -283,13 +283,13 @@ createApp({
             this.Producto.nombre = ""
             this.Producto.tamanio = ""
             this.Producto.precio = ""
-            this.Producto.hoja = ""
             this.Producto.plato = "1"
             this.Producto.subtipo = "1"
             this.Plato.id = ""
             this.Plato.nombre = ""
             this.Subtipo.id = ""
             this.Subtipo.nombre = ""
+            this.Subtipo.hoja = ""
             this.Usuario.user = ""
             this.Usuario.password = ""
             this.Usuario.modif = 0
