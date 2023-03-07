@@ -4,14 +4,9 @@
     box-sizing: border-box;
 }
 
-body{
-    background-color: black;
-    color: antiquewhite;
-}
-
 nav{
-    box-shadow: 0 0 30px;
-    background-color: #774b91 !important;
+    box-shadow: 0 0 30px rgba(255, 0, 149, 0.692);
+    background: linear-gradient(270deg, #890244, #da297f);
 }
 
 main{
@@ -22,7 +17,7 @@ ul{
     width: 100%;
 }
 
-h1{
+h1, h2{
     text-align: center;
     margin-top: 40px;
     margin-bottom: 20px;
@@ -76,7 +71,7 @@ select{
 
 img{
     position: relative;
-    width: 150px;
+    width: 250px;
     margin-top: 20px;
 }
 
@@ -101,14 +96,51 @@ img{
     width: 90px;
 }
 
+#listas{
+    margin-top: 40px;
+    background-color: white;
+    color: black;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 10px 10px 15px #ffffff69;
+}
+
+#listas p{
+    text-align: center;
+}
+
+#listas td.desc{
+    width: 80%;
+}
+
+#listas td.cant{
+    width: 10%;
+}
+
+#listas td.prec{
+    width: 30%;
+}
+
+#listas h3{
+    text-align: left !important;
+}
+
+#hoja{
+    border: 1px solid pink;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 40px;
+    padding-top: 0;
+    padding-bottom: 40px;
+    padding-left: 40px;
+    box-shadow: 10px 10px 15px rgba(255, 192, 203, 0.719);
+}
+
 @media (min-width: 500px){
     form{
         width: 400px;
     }
-}
-
-@media (min-width: 1100px){
-    table{
-        width: 1000px !important;
+    img{
+        width: 300px;
     }
 }

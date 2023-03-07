@@ -19,7 +19,8 @@ createApp({
             },
             Subtipo: {
                 id: "",
-                nombre: ""
+                nombre: "",
+                hoja:0
             },
             Usuario: {
                 user: "",
@@ -28,6 +29,7 @@ createApp({
                 modif: 0
             },
             message: 'Lista de Precios',
+            hojas:0,
             productos: [],
             subtipos: [],
             platos: [],
@@ -62,6 +64,7 @@ createApp({
                 .then(res => res.json())
                 .then(data => {
                     this.subtipos = data
+                    this.cantidadHojas()
                 })
         },
         nuevoProducto() {
@@ -93,6 +96,7 @@ createApp({
                 })
         },
         nuevoSubtipo() {
+            console.table(this.Subtipo)
             opciones = {
                 method: 'POST', headers: {
                     'Accept': 'application/json',
@@ -244,11 +248,11 @@ createApp({
             this.Producto.nombre = p.nombre,
             this.Producto.tamanio = p.tamanio,
             this.Producto.precio = p.precio,
-            this.Producto.hoja = p.hoja,
             this.Producto.plato = p.plato,
             this.Producto.subtipo = p.subtipo
             this.Subtipo.id = p.id
             this.Subtipo.nombre = p.nombre
+            this.Subtipo.hoja = p.hoja,
             this.Plato.id = p.id
             this.Plato.nombre = p.nombre
             this.Usuario.user = p.user
@@ -293,6 +297,13 @@ createApp({
             this.leerSubtipos()
             this.leerPlatos()
             this.leerUsuarios()
+        },
+        cantidadHojas(){
+            for(s of this.subtipos){
+                if(this.hojas<s.hoja){
+                    this.hojas=s.hoja
+                }
+            }
         }
     },
     created() {

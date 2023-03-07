@@ -59,6 +59,8 @@
                     <input type="text" disabled name="id" v-model="Subtipo.id"><br>
                     <label for="nombre">Nombre:</label>
                     <input class="form-control-sm" v-model="Subtipo.nombre" type="text" name="nombre"><br>
+                    <label for="hoja">Hoja:</label>
+                    <input class="form-control-sm" v-model="Subtipo.hoja" type="text" name="hoja"><br>
                     <div v-if="Subtipo.id == ''">
                         <input @click="nuevoSubtipo()" id="submit" type="submit" value="Agregar" class="btn btn-primary submit">
                     </div>
@@ -73,6 +75,7 @@
                     <tr>
                         <td>ID</td>
                         <td>Nombre</td>
+                        <td>Hoja</td>
                         <td>#</td>
                         <td>X</td>
                     </tr>
@@ -81,6 +84,7 @@
                     <tr v-for="s in subtipos">
                         <td>{{s.id}}</td>
                         <td>{{s.nombre}}</td>
+                        <td>{{s.hoja}}</td>
                         <td><a class="btn btn-dark" @click="cargarCampos(s)">Modificar</a></td>
                         <td><a class="btn btn-danger" @click="eliminarSubtipo(s.id)">Eliminar</a></td>
                     </tr>

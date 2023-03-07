@@ -63,8 +63,6 @@
                     <input class="form-control-sm" v-model="Producto.tamanio" type="text" name="tamanio"><br>
                     <label for="precio">Precio:</label>
                     <input class="form-control-sm" v-model="Producto.precio" type="text" name="precio"><br>
-                    <label for="hoja">Hoja:</label>
-                    <input class="form-control-sm" v-model="Producto.hoja" type="text" name="hoja"><br>
                     <label for="plato">Plato:</label>
                     <select class="form-select-sm" v-model="Producto.plato" name="plato" id="plato">
                         <option v-for="p in platos" :value="p.id">{{p.id}} - {{p.nombre}}</option>
@@ -91,7 +89,6 @@
                         <td>Nombre</td>
                         <td>Tamaño de la Porción</td>
                         <td>Precio</td>
-                        <td>Hoja</td>
                         <td>Plato</td>
                         <td>Subtipo</td>
                         <td>#</td>
@@ -104,7 +101,6 @@
                         <td>{{i.nombre}}</td>
                         <td>{{i.tamanio}}</td>
                         <td>{{i.precio}}</td>
-                        <td>{{i.hoja}}</td>
                         <td>{{i.plato}} - {{(platos.find((item) => item.id == i.plato)).nombre}}</td>
                         <td>{{i.subtipo}} - {{(subtipos.find((item) => item.id == i.subtipo)).nombre}}</td>
                         <td><a class="btn btn-dark" @click="cargarCampos(i)">Modificar</a></td>
