@@ -19,40 +19,21 @@
 <body>
     <div id="app">
         <header>
-            <!-- place navbar here -->
-            <!-- Nav tabs -->
-            <nav class="navbar navbar-expand-lg navbar-dark">
-                <div class="container">
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <a class="navbar-brand" href="index.html">Listas</a>
-                    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li v-if="logueado!=null" class="nav-item">
-                                <a class="nav-link" aria-current="page" href="productos.html">Productos</a>
-                            </li>
-                            <li v-if="logueado!=null" class="nav-item">
-                                <a class="nav-link" href="subtipos.html">Subtipos</a>
-                            </li>
-                            <li v-if="logueado!=null" class="nav-item">
-                                <a class="nav-link" href="platos.html">Platos</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link derecha" href="sesion.html">Iniciar Sesion</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+            <a href="./index.html" class="logo">
+                <img src="./img/Logo-Circular-SinLetras.png" alt="logo">
+                <h1>Rotiseria Buena Voluntad</h1>
+            </a>
+            <nav>
+                <a class="nav-link" href="./index.html">Listas</a>
+                <a v-if="logueado!=null" class="nav-link" aria-current="page" href="./productos.html">Productos</a>
+                <a v-if="logueado!=null" class="nav-link" href="./subtipos.html">Subtipos</a>
+                <a v-if="logueado!=null" class="nav-link" href="./platos.html">Platos</a>
+                <a v-if="logueado!=null" class="nav-link derecha" href="#">Usuarios</a>
+                <a v-if="logueado==null" class="nav-link derecha" href="#">Iniciar Sesion</a>
             </nav>
         </header>
         <main>
-            <div class="img-container">
-                <img src="./img/Logo-Circular-Whatsapp.png" alt="logo">
-            </div>
-            <h1>Iniciar Session</h1>
+            <h2>Iniciar Session</h2>
             <div class="container">
                 <form class="form" action="" onsubmit="return false">
                     <label for="nombre">Usuario:</label>
@@ -92,8 +73,8 @@
                         <td>{{u.user}}</td>
                         <td>{{u.password}}</td>
                         <td>{{u.activo}}</td>
-                        <td><a class="btn btn-dark" @click="cargarCampos(u)">Modificar</a></td>
-                        <td><a class="btn btn-danger" @click="eliminarUsuario(u.user)">Eliminar</a></td>
+                        <td><a class="btn btn-info" @click="cargarCampos(u)"><img src="./img/Edit.png" alt=""></a></td>
+                        <td><a class="btn btn-danger" @click="eliminarUsuario(u.user)"><img src="./img/Delete.png" alt=""></a></td>
                     </tr>
                 </tbody>
             </table>

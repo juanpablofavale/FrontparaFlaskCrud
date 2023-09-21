@@ -19,39 +19,24 @@
 <body>
     <div id="app">
         <header>
-            <!-- place navbar here -->
-            <!-- Nav tabs -->
-            <nav class="navbar navbar-expand-lg navbar-dark">
-                <div class="container">
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">Listas</a>
-                    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li v-if="logueado!=null" class="nav-item">
-                                <a class="nav-link" aria-current="page" href="productos.html">Productos</a>
-                            </li>
-                            <li v-if="logueado!=null" class="nav-item">
-                                <a class="nav-link" href="subtipos.html">Subtipos</a>
-                            </li>
-                            <li v-if="logueado!=null" class="nav-item">
-                                <a class="nav-link" href="platos.html">Platos</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link derecha" href="sesion.html">Iniciar Sesion</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+            <a href="./index.html" class="logo">
+                <img src="./img/Logo-Circular-SinLetras.png" alt="logo">
+                <h1>Rotiseria Buena Voluntad</h1>
+            </a>
+            <nav>
+                <a class="nav-link" href="#">Listas</a>
+                <a v-if="logueado!=null" class="nav-link" aria-current="page" href="./productos.html">Productos</a>
+                <a v-if="logueado!=null" class="nav-link" href="./subtipos.html">Subtipos</a>
+                <a v-if="logueado!=null" class="nav-link" href="./platos.html">Platos</a>
+                <a v-if="logueado!=null" class="nav-link derecha" href="./sesion.html">Usuarios</a>
+                <a v-if="logueado==null" class="nav-link derecha" href="./sesion.html">Iniciar Sesion</a>
             </nav>
         </header>
         <main>
-            <img class="fondo" src="./img/Logo-Circular-Whatsapp.png" alt="fondo">
+            <h2>Listas</h2>
             <div class="container listas">
                 <div class="hoja" v-for="h in hojas">
+                    <div class="hojaFondo"></div>
                     <div class="row" v-for="s in subtipos">
                         <div class="col" v-if="s.hoja==h">
                             <h3>{{s.nombre}}</h3>
