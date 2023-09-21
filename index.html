@@ -22,7 +22,7 @@
             <!-- place navbar here -->
             <!-- Nav tabs -->
             <nav class="navbar navbar-expand-lg navbar-dark">
-                <div class="container-fluid">
+                <div class="container">
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false"
                         aria-label="Toggle navigation">
@@ -49,20 +49,16 @@
             </nav>
         </header>
         <main>
-            <div class="container" id="listas">
-                <div id="hoja" v-for="h in hojas">
-                    <div class="row">
-                        <div class="col d-flex justify-content-center m-3">
-                            <img src="./img/Logo-Circular-Whatsapp.png" alt="logo">
-                        </div>
-                    </div>
+            <img class="fondo" src="./img/Logo-Circular-Whatsapp.png" alt="fondo">
+            <div class="container listas">
+                <div class="hoja" v-for="h in hojas">
                     <div class="row" v-for="s in subtipos">
                         <div class="col" v-if="s.hoja==h">
                             <h3>{{s.nombre}}</h3>
                             <div v-if="s.id==4">
                                 <p>Carne - Pollo - JyQ - Cebolla y Queso - Roquefort - Verdura - Atun - Humita</p>
                             </div>
-                            <table class="table table-striped table-danger">
+                            <table class="table table-striped">
                                 <tr v-for="p in productos">
                                     <td class="desc" v-if="p.subtipo==s.id">{{p.nombre}}</td>
                                     <td class="prec" v-if="p.subtipo==s.id">${{p.precio}}</td>
